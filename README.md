@@ -129,3 +129,28 @@ Os serializers podem ser criados com base nos modelos do Django (usando `ModelSe
 
 
 # Criar um arquivo de urls.py na pasta do APP [📁api_rest]
+
+### Importante pensar que URLs e VIEWs trabalham juntas. Nós "setamos" as url para a função relacionada, sempre atreladas a determinada model, que será transformada em json pelo serializers.
+
+## Processo Completo
+##### Cliente faz uma requisição para o endpoint /users/.
+##### O Django direciona a requisição para a função de view associada, que no caso é get_users.
+##### A view recupera os dados do modelo User no banco de dados e os passa para o serializador.
+##### O serializador transforma os dados do modelo em JSON.
+##### A view retorna uma resposta HTTP com o JSON contendo os dados dos usuários.
+
+#### Diagrama Resumido
+URL: /users/ ➡️
+View: get_users ➡️
+Model: User ➡️
+Serializer: UserSerializer ➡️
+Resposta: JSON com dados dos usuários
+
+### Conclusão
+Sim, URLs e views trabalham juntas, e cada view geralmente está associada a um modelo (ou vários) que será transformado em JSON pelo serializador. Esse fluxo é a base para a criação de APIs RESTful no Django usando o Django Rest Framework (DRF).
+
+
+## Teste de API do GET view:
+```
+http://127.0.0.1:8000/api/data/?user=Edu
+```
