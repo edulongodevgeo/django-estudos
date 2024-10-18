@@ -79,16 +79,11 @@ py manage.py startapp api_rest
 "corsheaders"
 "api_rest" (temos que colocar também nossa aplicação criada)
 ```
-#### ➡️ Em IMIDDLEWARE adicione
+#### ➡️ Em MIDDLEWARE adicione
 ```
 'corsheaders.middleware.CorsMiddleware'
 ```
-#### ➡️ Na última linha adicione o caminho do acesso (path)
-```
-CORS_ALLOW_ALL_ORIGINS = [
-    'http://localhost:8080',
-]
-```
+
 
 Perfeito! Agora bora codar os modeos! :smile: 
 
@@ -133,3 +128,4 @@ Os serializers podem ser criados com base nos modelos do Django (usando `ModelSe
 ### Finalmente, na views.py começamos a desenvolver nosso bom e velho CRUD :heart:
 
 
+# Criar um arquivo de urls.py na pasta do APP [📁api_rest]
